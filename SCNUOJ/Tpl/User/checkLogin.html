@@ -1,0 +1,26 @@
+<extend name="./Tpl/Public/base.html" />
+<block name="head">
+   <title>华南师范大学ACM Online Judge</title>
+   <link rel="stylesheet" type="text/css" href="/Public/css/base.css">
+   <link rel="stylesheet" type="text/css" href="/Public/css/user.css">
+</block>
+
+<block name="content">
+<div id="wrap">
+	<h2>Login</h2>
+	<div id="user-login-form">
+		<h3>{$info}</h3>
+      <h4></h4>
+		<form action="__URL__/checkLogin" method="post">
+            <p>帐号: <input id="user-login-username" type="text" name="user_id" class="w150"></p>
+            <p>密码: <input type="password" name="password" class="w150"></p>
+            <input type="submit" value="登录" class="btn-green" />
+            <input type="reset" value="重置" class="btn-red" />
+            <input type="hidden" name="flag" value="0">
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+	$('user-login-username').focus();
+</script>
+</block>

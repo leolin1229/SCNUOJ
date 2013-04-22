@@ -1,0 +1,33 @@
+<extend name="./Tpl/Public/base.html" />
+<block name="head">
+   <title>华南师范大学ACM Online Judge</title>
+   <link rel="stylesheet" type="text/css" href="/Public/css/base.css">
+   <link rel="stylesheet" type="text/css" href="/Public/css/solution.css">
+</block>
+<block name="content">
+   <div id="wrap" align="center">
+
+      <h1>
+      Submit Your Solution for
+      <a href="__APP__/Problem/showProblem?pid={$pid}">{$pid}</a>
+      </h1>
+
+      <form action="__URL__/submit" method="post">
+         <input name="pid" value="{$pid}" type="hidden" style="display:none">
+         Language
+         <select name="language">
+            <option value="C++">C++</option>
+         </select>
+        
+         Share Code:
+         <input type="radio" name="is_share" value="Yes">Yes
+         <input type="radio" name="is_share" value="No" checked="true">No
+
+         <h4>Source Code</h4>
+         <textarea name="src" id="solution-submit-code"></textarea>
+         <input class="btn-green" type="submit" value="Submit">
+         <input class="btn-blue" type="reset" value="Reset">
+      </form>
+
+   </div>
+</block>

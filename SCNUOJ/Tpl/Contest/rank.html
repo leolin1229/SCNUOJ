@@ -1,0 +1,76 @@
+<extend name="./Tpl/Public/base.html" />
+<block name="head">
+   <title>华南师范大学ACM Online Judge</title>
+   <link rel="stylesheet" type="text/css" href="/Public/css/base.css">
+   <link rel="stylesheet" type="text/css" href="/Public/css/solution.css">
+   <link rel="stylesheet" type="text/css" href="/Public/css/contest.css">
+ </block>
+<block name="content">
+   <div id="wrap">
+      <h2>{$head}</h2>
+      <div class="nav-tabs">
+         <a href="__URL__/overView?cid={$cid}">OverView</a>
+         <a href="__URL__/showProblem?cid={$cid}&pid=0">Problems</a>
+         <a href="__URL__/status?cid={$cid}">Status</a>
+         <a href="__URL__/rank?cid={$cid}" class="active">Ranklist</a>
+      </div>
+      <div>
+      <input type="hidden" value={$length} id="length">
+      <input type="hidden" value={$begin_time} id="begin_time">
+      <input type="hidden" value="0" id="showtime">
+      </div>
+      <div class="nav-content">
+         <div id="content">
+            <table id="cell" class="table table-striped table-hover">
+               <tr>
+                  <th class="td-width">Rank</th>
+                  <th class="td-width">ID</th>
+                  <th class="td-width">Solve</th>
+                  <th class="td-width">Penalty</th>
+                  <volist name="ptag" id="vo">
+                     <th class="td-width">{$vo}</th>
+                  </volist>
+               </tr>
+               <tbody>
+                  <?php
+                  for($i=0; $i<count($list); $i++) {
+                     $uid = $list[$i]['user_id'];
+                     ?>
+                     <tr>
+                        <td><?php echo $i+1;?></td>
+                        <td><?php echo $uid;?></td>
+                        <td><?php echo $list[$i]['solve'];?></td>
+                        <td><?php echo $list[$i]['penalty'];?></td>
+                        <?php
+                        for($j=0; $j<$len; $j++) {
+                           ?>
+                           <td><?php 
+                           $ac_time = $list[$i][$j*2]; 
+                           if($ac_time!=null) {
+                           echo "<b style=\"color: green\">$ac_time</b>";
+                           }
+                           ?>
+                           <br><span>
+                           <?php 
+                           if($list[$i][$j*2+1]>0) {
+                              if($ac_time==null) {
+                              echo "<b style=\"color: red\">(-".$list[$i][$j*2+1].")</b>";
+                              } else {
+                              echo "<b style=\"color: green\">(-".$list[$i][$j*2+1].")</b>";
+                              }
+                           }
+                           ?></span></td>
+                           <?php
+                        }
+                        ?>
+                     </tr>
+                     <?php
+                  }
+                  ?>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+<script type="text/javascript" src="/Public/js/contest.js"></script>
+</block>

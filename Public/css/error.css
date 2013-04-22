@@ -1,0 +1,19 @@
+/*
+    Author: KidLet
+    Date:   2013-03-08
+
+    For SCNU OJ Error CSS
+*/
+
+#wrap
+{
+	width: 700px;
+	margin: 10px auto;
+}
+
+.face
+{
+	font-size: 100px;
+	font-weight: normal;
+	margin: 12px 0;
+}

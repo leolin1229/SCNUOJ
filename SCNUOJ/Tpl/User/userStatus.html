@@ -1,0 +1,68 @@
+<extend name="./Tpl/Public/base.html" />
+<block name="head">
+	<title>华南师范大学ACM Online Judge</title>
+	<link rel="stylesheet" type="text/css" href="/Public/css/base.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/user.css"></block>
+
+<block name="content">
+	<div id="wrap">
+		<h2>{$list['user_id']}的个人信息</h2>
+		<table id="user-status-table" class="table table-hover">
+			<tr>
+				<td>用户名：</td>
+				<td>{$list['user_id']}</td>
+			</tr>
+			<tr>
+				<td>学校：</td>
+				<td>{$list['school']}</td>
+			</tr>
+			<tr>
+				<td>E-mail：</td>
+				<td>{$list['email']}</td>
+			</tr>
+			<tr>
+				<td>Motto：</td>
+				<td>{$list['motto']}</td>
+			</tr>
+			<tr>
+				<td>注册时间：</td>
+				<td>{$list['reg_time']}</td>
+			</tr>
+			<tr>
+				<td>提交次数：</td>
+				<td>{$list['submit']}</td>
+			</tr>
+			<tr>
+				<td>解决题数：</td>
+				<td>{$list['solved']}</td>
+			</tr>
+			<tr>
+				<td>AC率：</td>
+				<td>{$list['ac_ratio']}%</td>
+			</tr>
+			<tr>
+				<td>用户排名：</td>
+				<td>{$rank}</td>
+			</tr>
+		</table>
+
+		<a href="__APP__/User/setting?uid={$uid}">
+			<button class="btn-blue">修改个人信息</button>
+		</a>
+		<span>&nbsp&nbsp</span>
+		<a href="__APP__/User/user">
+			<button class="btn-green">用户总排名</button>
+		</a>
+
+	</br>
+	<h2>题目列表</h2>
+	<div id="user-status-list" >
+		
+		<volist name="list3" id="vo" mod="13">
+			{$vo['problemColor']}
+			<eq name="mod" value="12"></br>
+		</eq>
+	</volist>
+</div>
+</div>
+</block>

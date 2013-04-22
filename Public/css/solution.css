@@ -1,0 +1,73 @@
+/*
+    Author: KidLet
+    Date:   2013-03-07
+
+    For SCNU OJ Solution CSS
+*/
+
+
+
+#wrap
+{
+	margin: 10px 30px;
+}
+
+.table
+{
+	width: 100%;
+	border-spacing: 0;
+	text-align: center;
+	border-collapse: collapse;
+  	border-spacing: 0;
+	
+}
+
+.table th,
+.table td 
+{
+  padding: 12px 5px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  border-top: 1px solid #dddddd;
+}
+
+.table th 
+{
+  font-weight: bold;
+}
+
+.table thead th 
+{
+  vertical-align: bottom;
+}
+
+.pagination 
+{
+	margin-top: 20px;
+}
+
+/* Search form */
+#form-search
+{
+	padding-left: 20px;
+	margin: 8px 0;
+}
+
+#solution-submit-code
+{
+	display: block;
+	width: 600px;
+	height: 300px;
+	margin-bottom: 20px;
+	border: 1px solid rgb(82, 168, 236);
+}
+#solution-submit-code:focus 
+{
+	outline: 2px solid rgb(82, 168, 236);
+}
+
+#solution-show-table
+{
+	font-size: 0.85em;
+}

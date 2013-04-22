@@ -1,0 +1,113 @@
+<extend name="./Tpl/Public/base.html" />
+<block name="head">
+   <title>Status -华南师范大学ACM Online Judge</title>
+   <link rel="stylesheet" type="text/css" href="/Public/css/base.css">
+   <link rel="stylesheet" type="text/css" href="/Public/css/contest.css">
+ </block>
+
+ <block name="content"><strong style="float:left; border-style:solid; border-width:10px; border-color:#000 transparent transparent transparent; height:0; width:0; font-size:0"></strong>
+   <div id="wrap">
+      <h2>{$head}</h2>
+      <div class="nav-tabs">
+            <a href="__URL__/overView?cid={$cid}">OverView</a>
+            <a href="__URL__/showProblem?cid={$cid}&pid=0" class="active">Problems</a>
+            <a href="__URL__/status?cid={$cid}">Status</a>
+            <a href="__URL__/rank?cid={$cid}">Ranklist</a>
+      </div>
+      <div>
+      <input type="hidden" value={$length} id="length">
+      <input type="hidden" value={$begin_time} id="begin_time">
+      <input type="hidden" value="0" id="showtime">
+      </div>
+      <div class="nav-content">
+         <div>
+            <div id="solution-statistic-info">
+               <table>
+                  <tbody>
+                     <tr>
+                        <td>Total Submission(s)</td>
+                        <td>{$submit}</td>
+                     </tr>
+                     <tr>
+                        <td><span class="Result-AC">Accepted</span></td>
+                        <td>{$AC}</td>
+                     </tr>
+                     <tr>
+                        <td><span class="Result-PE">Presentation Error</span></td>
+                        <td>{$PE}</td>
+                     </tr>
+                     <tr>
+                        <td><span class="Result-CE">Compilation Error</span></td>
+                        <td>{$CE}</td>
+                     </tr>
+
+                     <tr>
+                        <td><span class="Result-Other">Wrong Answer</span></td>
+                        <td>{$WA}</td>
+                     </tr>
+                     <tr>
+                        <td><span class="Result-Other">Runtime Error</span></td>
+                        <td>{$RE}</td>
+                     </tr>
+                     <tr>
+                        <td><span class="Result-Other">Time Limit Exceeded</span></td>
+                        <td>{$TLE}</td>
+                     </tr>  
+                     <tr>
+                        <td><span class="Result-Other">Memory Limit Exceeded</span></td>
+                        <td>{$MLE}</td>
+                     </tr>   
+                     <tr>
+                        <td><span class="Result-CE">Output Limit Exceeded</span></td>
+                        <td>{$OLE}</td>
+                     </tr>                                                                        
+                  </tbody>
+               </table>
+            </div>
+            <!-- statistic-table -->
+            <div id="solution-statistic-table">
+               <h2 style="text-align:center;">
+                  Best solutions for
+                  <a style="color:white;text-decoration: underline;" href="__URL__/showProblem?cid={$cid}&pid={$pid}">Problem {$proid}</a>
+               </h2>
+
+               <table class="table table-striped table-hover">
+                  <thead>
+                     <tr>
+                        <td>Solution ID</td>
+                        <td>Author</td>
+                        <td>Exe. Time</td>
+                        <td>Exe. Memory</td>
+                        <td>Code Len.</td>
+                        <td>Language</td>
+                        <td>Date</td>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <volist name="list" id="vo">
+                        <tr>
+                           <td>{$vo['share']}</td>
+                           <td>
+                              <a href="__APP__/User/userStatus?uid={$vo['user_id']}">{$vo['user_id']}</a>
+                           </td>
+                           <td>*</td>
+                           <td>*</td>
+                           <td>*</td>
+                           <td>{$vo['language']}</td>
+                           <td>{$vo['judgetime']}</td>
+                        </tr>
+                     </volist>
+                  </tbody>
+               </table>
+               <div class="pagination">
+                  {$page}
+               </div>
+            </div>
+            <!-- statistic-table -->
+            <div class="clearfix"></div>
+         </div>
+      </div>
+   </div>
+</div>
+<script type="text/javascript" src="/Public/js/contest.js"></script>
+</block> 

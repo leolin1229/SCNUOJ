@@ -1,0 +1,142 @@
+/*
+    Author: KidLet
+    Date:   2013-03-07
+
+    For SCNU OJ Problem CSS
+*/
+
+
+
+#wrap
+{
+	margin: 10px 30px;
+}
+
+.table
+{
+	width: 100%;
+	border-spacing: 0;
+	text-align: left;
+	border-collapse: collapse;
+  	border-spacing: 0;
+	
+}
+
+.table th,
+.table td 
+{
+  padding: 8px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
+}
+
+.table th 
+{
+  font-weight: bold;
+}
+
+.table thead th 
+{
+  vertical-align: bottom;
+}
+
+.pagination 
+{
+	margin-top: 20px;
+}
+
+
+
+/* Show Problem */
+
+.problem-show-head h1
+{
+	text-align: center;
+}
+
+.problem-show-info
+{
+	color: green;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.problem-show-info td
+{
+	padding-left: 15px;
+}
+
+.problem-show-foot
+{
+	text-align: center;
+}
+
+.problem-show-content
+{
+	padding-left: 15px;
+	margin: 20px 0;
+	line-height: 1.5em;
+}
+
+.sin, .sout
+{
+	background: #efefef;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	padding-left: 10px;
+}
+
+.problem-show-content-title
+{
+	color: rgb(0, 136, 204);
+	font-weight: bold;
+}
+
+.problem-show-content-text
+{
+	margin-left: 15px;
+}
+
+.problem-show-content-text p
+{
+	margin: 2px 0 2px 0;
+}
+
+/* Show Problem End */
+
+
+/* Problem statistic */
+#solution-statistic-info
+{
+	_display: inline;
+	float: left;
+	font-size: 14px;
+	background: #efefef;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	margin: 55px 40px;
+}
+
+
+#solution-statistic-table
+{
+	_display: inline;
+	float: left;
+	margin-left: 30px;
+	width: 700px;
+}
+
+/* show code */
+#code-head
+{
+	text-align: center;
+}
+
+#code-info
+{
+	margin-left: 37%;
+}
+
+/* Problem statistic End */

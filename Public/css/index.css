@@ -1,0 +1,75 @@
+/*
+    Author: KidLet
+    Date:   2013-03-01
+
+    For SCNU OJ index CSS
+*/
+
+
+
+#content
+{
+	padding-top: 15px;
+}
+
+
+#announcement
+{
+	float: left;
+	_display:inline;
+	height: 220px;
+	width: 600px;
+	padding-left: 8px;
+	margin: 0 20px 0px 30px;
+	border-left: 4px solid #009DFF;
+	border-radius: 3px;
+}
+#announcement p
+{
+	margin: 8px 0;
+}
+
+#contest
+{
+	margin-bottom: 20px; 
+	float: left;
+	width: 330px;
+	_display:inline;
+}
+
+
+#status
+{
+	float: left;
+	_display:inline;
+	margin: 0 30px;
+	width: 600px;
+	/*width: 400px;*/
+}
+
+#top
+{
+	float: left;
+	_display:inline;
+	width: 330px;
+}
+
+
+.table
+{
+	width: 100%;
+	border-radius: 5px;
+	border: 1px solid #e1e1e1;
+	border-spacing: 0;
+	text-align: center;
+	border-collapse: separate;
+	_border-collapse: collapse;
+	font-size: 0.9em;
+	
+}
+.table td,.table th{padding: 4px; }
+.table td
+{
+	border-top: 1px solid #ddd;
+}
+

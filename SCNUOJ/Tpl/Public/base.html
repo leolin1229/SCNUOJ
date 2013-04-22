@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <block name="head">
+      <title>华南师范大学ACM Online Judge</title>
+   </block>
+   <script type="text/javascript" src="/Public/js/base.js"></script>
+</head>
+
+<body>
+   <div id="Top"></div>
+   <div id="header" class="w1024">
+      <div id="header-wrap">
+         <h1 id="header-title">
+            SCNU Online Judge<sup style="color: rgb(175,175,175)">β</sup>
+         </h1>
+         <div id="header-link">
+            {$link1}{$link2}
+            <div id="header-login">
+               <div class="arrow"></div>
+               <form action="/SCNUOJ/index.php/User/checkLogin" method="post">
+                  <p>帐号: <input id="header-login-username" type="text" name="user_id" class="w100"></p>
+                  <p>密码: <input type="password" name="password" class="w100"></p>
+                  <input type="submit" value="登录" class="btn-green" />
+                  <input id="header-login-btn-cancel" type="reset" value="取消" class="btn-red" />
+                  <input type="hidden" name="flag" value="1">
+               </form>
+
+            </div>
+         </div>
+         <div class="clearfix"></div>
+      </div>
+   </div>
+   <!-- header end -->
+   <div id="nav" class="w1024">
+      <ul id="nav-menu">
+         <li>
+            <a <eq name="Think.const.MODULE_NAME" value="Index">class="nav-menu-current"</eq> href="__APP__">Home</a>
+         </li>
+         <li>
+            <a <eq name="Think.const.MODULE_NAME" value="Problem">class="nav-menu-current"</eq> href="__APP__/Problem/problemList">Problem</a>
+         </li>
+         <li>
+            <a <eq name="Think.const.MODULE_NAME" value="Solution">class="nav-menu-current"</eq> href="__APP__/Solution/index">Status</a>
+         </li>
+         <li>
+            <a <eq name="Think.const.MODULE_NAME" value="User">class="nav-menu-current"</eq> href="__APP__/User/user">Ranklist</a>
+         </li>
+         <li>
+             <a <eq name="Think.const.MODULE_NAME" value="Contest">class="nav-menu-current"</eq> href="__APP__/Contest/contestList/">Contest</a>
+         </li>
+      </ul>
+   </div>
+   <!-- nav end -->
+   <div class="clearfix"></div>
+
+   <div id="content" class="w1024">
+      <block name="content"></block>
+   </div>
+
+   <div id="footer" class="w1024">Design by SCNU ACM ©2013.</div>
+   <script type="text/javascript" src="/Public/js/common.js"></script>
+</body>
+
+</html>

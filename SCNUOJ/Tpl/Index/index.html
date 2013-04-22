@@ -1,0 +1,91 @@
+<extend name="./Tpl/Public/base.html" />
+<block name="head">
+   <title>华南师范大学ACM Online Judge</title>
+   <link rel="stylesheet" type="text/css" href="/Public/css/base.css">
+   <link rel="stylesheet" type="text/css" href="/Public/css/index.css">
+</block>
+<block name="content">
+  <div id="announcement">
+     <p>欢迎来到华南师范大学ACM在线测评系统</p>
+     <p>本系统指在为同学提供一个练习和竞赛平台</p>
+     <p>请使用 IE8及以上的浏览器，推荐使用Chrome、FireFox</p>
+     <p>有更多问题请联系我们。</p>
+  </div>
+  <div id="contest">
+     <h2>Recent Contest</h2>
+     <table class="table table-hover">
+        <thead>
+           <tr>
+              <th width="60%">Contest</th>
+              <th width="40%">Time</th>
+           </tr>
+        </thead>
+        <tbody>
+          <volist name="rclist" id="vo">
+            <tr>
+              <td><a href="{$vo['url']}">{$vo['name']}</a></td>
+              <td>{$vo['start_time']}</td>
+            </tr>
+          </volist>                         
+        </tbody>
+     </table>
+  </div>
+
+<div class="clearfix"></div>
+
+<!-- First end -->
+
+  <div id="status">
+     <h2>Status</h2>
+     <table class="table table-hover">
+        <thead>
+           <tr>
+              <th width="20%">User</th>
+              <th width="15%">Pro.ID</th>
+              <th width="30%">Judge Status</th>
+              <th width="35%">Submit Time</th>
+           </tr>
+        </thead>
+        <tbody>
+           <volist name="list2" id="vo" mod = "2">
+              <eq name="mod" value="1"><tr class="table-even"></eq>
+              <eq name="mod" value="0"><tr class="table-odd"></eq>
+                 <td>
+                    <a href="__APP__/User/userStatus?uid={$vo['user_id']}">{$vo['user_id']}</a>
+                 </td>
+                 <td>
+                    <a href="__APP__/Problem/showProblem?pid={$vo['problem_id']}">{$vo['problem_id']}</a>
+                 </td> 
+                 <td>{$vo['resultColor']}</td>                  
+                 <td>{$vo['judgetime']}</td>
+
+              </tr>
+           </volist>
+        </tbody>
+     </table>
+  </div>
+
+
+  <div id="top">
+     <h2>Ranklist</h2>
+     <table class="table table-hover">
+      <tr>
+         <th>Rank</th>
+         <th>User</th>
+         <th>Solved/Submit</th>
+      </tr>
+      <volist name="list3" id="vo" mod = "2">
+         <tr>
+            <td>{$rank++}</td>
+            <td>
+               <a href="__APP__/User/userStatus?uid={$vo['user_id']}">{$vo['user_id']}</a>
+            </td>
+            <td>{$vo['solved']}/{$vo['submit']}</td>
+         </tr>
+      </volist>
+     </table>
+  </div>
+
+<div class="clearfix"></div>
+<!-- Second End -->
+</block>

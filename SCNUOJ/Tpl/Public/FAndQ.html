@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">  
+<html>  
+<head>  
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+  <title>F&Q</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Le styles -->
+  <link href="/Public/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="/Public/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+  <link href="/Public/bootstrap/css/docs.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="/Public/bootstrap/img/scnu-acm.ico">
+
+  <script src="/Public/bootstrap/js/jquery.js"></script>
+  <script type="text/javascript" src="/Public/Js/Base.js"></script>
+  <script type="text/javascript" src="/Public/Js/prototype.js"></script>
+  <script type="text/javascript" src="/Public/Js/mootools.js"></script>
+  <script type="text/javascript" src="/Public/Js/Ajax/ThinkAjax.js"></script>
+
+  <!--主页CSS-->
+  <style type="text/css">
+  body {
+    padding-top: 0px;
+  }
+  #layout {
+    background-color: rgba(235, 243, 254, 0.4);
+  }
+  #layout-top {
+    padding-right: 10px;
+    padding-top: 10px;
+    height: 0px;
+  }
+  #layout-left {
+    height: 700px;
+    float: left;
+    width: 130px;
+  }
+  #layout-left ul {
+    margin: 30px 0 0 0;
+  }
+  #layout-left li {
+    font-size: 25px;
+    line-height: 45px;
+    list-style-type: none;
+    display: block;
+  }
+  #layout-left li a {
+    margin-left: 20px;
+    -webkit-transition: margin 0.3s ease-out; 
+    -moz-transition: margin 0.3s ease-out; 
+    -o-transition: margin 0.3s ease-out;
+  }
+  #layout-left li a:hover {
+    margin-left: 35px; 
+    text-decoration: none;
+  }
+  #layout-left #select {
+    width: 140px;
+    background-color: #fff;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: -2px 1px 3px gray;
+  }
+  #layout-left #select a {
+    margin-left: 20px;
+    color: #999;
+  }
+  #layout-body {
+    margin-left: 140px;
+    margin-top: 120px;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: -2px 2px 20px gray;
+  }
+  #layout-bottom {
+    color: #888;
+    padding-top: 30px;
+    height: 70px;
+  }
+  </style>
+
+  <script type="text/javascript">
+//登录js
+function checkLogin() {
+  ThinkAjax.sendForm('form1','__APP__/User/checkLogin',complete1,'hint1');
+}
+function complete1(data,status) {
+  $('form1').reset();
+  if (status == 1)
+    window.location = '__APP__/Public/FAndQ';
+}
+
+//注册js
+function show() {  
+  document.getElementById("verify").src="__APP__/Public/verify/random"+Math.random();
+}
+
+function checkRegister() {
+  ThinkAjax.sendForm('form2','__APP__/User/checkRegister',complete2,'hint2');
+}
+
+function complete2(data,status) {
+  $('form2').reset();
+  if (status == 1)
+    window.location = '__APP__/Public/FAndQ';
+}
+
+function checkLen(){
+  document.getElementById("userId").maxLength = 15;
+  document.getElementById("problemId").maxLength = 5;
+}
+// 按下回车提交表单
+function submit1(){
+  if(event.keyCode==13) {document.getElementById('button1').click();return false;}
+}
+function submit2(){
+  if(event.keyCode==13) {document.getElementById('button2').click();return false;}
+}
+</script>
+
+</head>
+<body>
+
+  <!-- 登录弹窗 -->
+  <div class="modal hide fade" id="loginModal" style="width:380px;height:211px;left:58%" >
+    <div class="modal-header">
+      <a class="close" data-dismiss="modal" aria-hidden="false">X</a>
+      <h2>用户登录</h2>
+    </div>
+    <form id="form1" class="form-signin" method="post" onkeydown="submit1()">
+      <div class="modal-body">
+        <input type="text" class="span2" placeholder="用户名" name="user_id">
+        <input type="password" class="span2" placeholder="密码" name="password">
+        <table>
+          <tr>
+            <td><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span></td>
+            <td><span id="hint1"></span></td>
+          </tr>
+        </table>
+      </div> 
+      <div class="modal-footer">
+        <button id="button1" class="btn btn-primary" type="button" value="提交" onClick="checkLogin()">登录</button>
+      </div>
+    </form>
+  </div>
+
+  <!--注册弹窗-->
+  <div class="modal hide fade" id="registerModal" style="width:600px;height:480px">
+    <div class="modal-header">
+      <a class="close" data-dismiss="modal" aria-hidden="false">X</a>
+      <h2 class="form-signin-heading">用户注册</h2>
+    </div>
+    <form id="form2" method="post" onkeydown="submit2()">
+      <div class="modal-body">
+        <input type="text" class="input-block-level" placeholder="用户名" name="user_id">
+        <input type="password" class="input-block-level" placeholder="密码(长度必须为6-15位)" name="password">
+        <input type="password" class="input-block-level" placeholder="确认密码" name="repassword">
+        <input type="text" class="input-block-level" placeholder="学校" name="school">
+        <input type="text" class="input-block-level" placeholder="E-Mail" name="email">
+        <input type="text" class="input-block-level" placeholder="Motto" name="motto">
+        Share Code：
+        <input type="radio" name="is_share" value="Yes">Yes
+        <input type="radio" name="is_share" value="No" checked="true">No
+        <table>
+          <tr>
+            <td><input type="text" placeholder="验证码" name="verify" style="width:80px; margin-top:8px;"></td>
+            <td><a href="javascript:show()"><img id="verify" alt="验证码" onClick="show()" src="/SCNUOJ/index.php/Public/verify"></a></td>
+            <td><a href="javascript:show()">看不清楚</a></td>
+            <td><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span></td>
+            <td><span id="hint2"></span></td>
+          </tr>
+        </table>
+
+      </div>
+      <div class="modal-footer"><button id="button2" class="btn btn-primary" type="button" value="提交" onclick="checkRegister()">注册</button></div>
+    </form>
+  </div>
+
+  <!-- 主页 -->
+  <div id="layout" class="container-fluid">
+    <div id="layout-top">
+      <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+      <img src='/Public/Picture/logo.png'>
+      <table align="right">
+        <tr>
+          <td>{$link1}</td>
+          <td>{$link2}</td>
+        </tr>
+      </table>
+    </div>
+
+    <div>
+      <div id="layout-left">
+        <ul>
+          <li><a href="__APP__">Home</a></li>
+          <li><a href="__APP__/Problem/problemList">Problem</a></li>
+          <li><a href="__APP__/Solution/index">Status</a></li>
+          <li><a href="__APP__/User/user">User</a></li>
+          <li><a href="__APP__/Public/beginner">Beginner</a></li>
+          <li id="select"><a href="__APP__/Public/FAndQ">F&Q</a></li>
+          <li><a href="__APP__/Public/about">About</a></li>
+        </ul>
+      </div>
+
+      <div id="layout-body">
+        <div>
+          <h3>评测状态: </h3>
+          <ul>
+            <li><font color="green">Queuing</font>: 提交的代码正在等待编译的队列中。</li></br>
+            <li><font color="green">Compiling</font>: 提交的代码正在被编译。</li></br>
+            <li><font color="green">Running</font>: 提交的代码正在运行。</li></br>
+            <li><font color="green">Judging</font>: 提交的代码正在评测。</li></br>
+          </ul>
+        </div>
+        <div>
+          <h3>评测结果: </h4>
+            <li><font color="red">Accepted</font>: 程序通过了所有测试。</li></br>
+            <li><font color="orange">Presentation Error</font>: 程序输出的答案正确，但输出答案的格式错误。</li></br>
+            <li><font color="green">Wrong Answer</font>: 程序输出了错误的答案</li></br>
+            <li><font color="green">Compilation Error</font>: 编译程序出错。</li></br>
+            <li><font color="green">Runtime Error</font>: 程序在运行期间非法操作，有可能是指针、数组越界，栈溢出，除数为零等情况。</li></br>
+            <li><font color="green">Time Limit Exceeded</font>: 程序运行的时间超出题目的限制。</li></br>
+            <li><font color="green">Memory Limit Exceeded</font>: 程序运行的内存超出题目的限制。</li></br>
+            <li><font color="green">Output Limit Exceeded</font>: 程序输出过多的内容。</li></br>
+            <li><font color="green">Judge Error</font>: 评测系统出错。</li></br>
+          </ul>
+        </div>
+      </div>
+
+      <div id="layout-bottom" class="span12">
+        <table>
+          <tbody>
+            <tr align="center">
+              <td width="20%"></td>
+              <td width="20%"></td>
+              <td width="25%">
+                <p>SCNU Online Judge. </br>Copyright © 2012-2013. All Rights Reserved.</p>
+              </td>
+              <td width="20%"></td>
+              <td width="15%"><a href="__APP__/Admin/index">Administration</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Le javascript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="/Public/bootstrap/js/bootstrap-transition.js"></script>
+  <script src="/Public/bootstrap/js/bootstrap-alert.js"></script>
+  <script src="/Public/bootstrap/js/bootstrap-modal.js"></script>
+  <script src="/Public/bootstrap/js/bootstrap-dropdown.js"></script>
+  <script src="/Public/bootstrap/js/bootstrap-scrollspy.js"></script>
+  <script src="/Public/bootstrap/js/bootstrap-tab.js"></script>
+  <script src="/Public/bootstrap/js/bootstrap-tooltip.js"></script>
+  <script src="/Public/bootstrap/js/bootstrap-popover.js"></script>
+  <script src="/Public/bootstrap/js/bootstrap-button.js"></script>
+  <script src="/Public/bootstrap/js/bootstrap-collapse.js"></script>
+  <script src="/Public/bootstrap/js/bootstrap-carousel.js"></script>
+  <script src="/Public/bootstrap/js/bootstrap-typeahead.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<extend name="./Tpl/Public/base.html" />
+<block name="head">
+   <title>华南师范大学ACM Online Judge</title>
+   <link rel="stylesheet" type="text/css" href="/Public/css/base.css">
+   <link rel="stylesheet" type="text/css" href="/Public/css/problem.css">
+   <link rel="stylesheet" type="text/css" href="/Public/css/contest.css">
+</block>
+<block name="content">
+   <div id="wrap">
+      <h2>{$head}</h2>
+      <div class="nav-tabs">
+         <a href="__URL__/overView?cid={$cid}">OverView</a>
+         <a href="__URL__/showProblem?cid={$cid}&pid=0" class="active">Problems</a>
+         <a href="__URL__/status?cid={$cid}">Status</a>
+         <a href="__URL__/rank?cid={$cid}">Ranklist</a>
+      </div>
+      <div>
+      <input type="hidden" value={$length} id="length">
+      <input type="hidden" value={$begin_time} id="begin_time">
+      <input type="hidden" value="0" id="showtime">
+      </div>
+      <div class="nav-content">
+         <div class="problem-link">
+            <volist name="list" id="vo">
+               <a href="__URL__/showProblem?cid={$cid}&pid={$vo['problem_id']-$pid1}">{$vo['proid']}</a>
+            </volist>
+         </div>
+         <div id="content">
+            <div class="problem-show-head">
+               <h1>{$proid}.&nbsp&nbsp&nbsp{$title}</h1> 
+
+               <table align="center" class="problem-show-info">
+                  <tbody>
+                     <tr align="left">
+                        <td width="150px">
+                           Time limit: {$time*1000} MS
+                        </td>
+                        <td>
+                           Memory limit: {$memory} K
+                        </td>
+                     </tr>
+                     <tr align="left">
+                        <td>
+                           Total submission: {$submit}
+                        </td>
+                        <td>
+                           Accepted: {$ac}
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+
+            <div class="problem-show-content"> 
+               <h3 class="problem-show-content-title">Problem Description</h3>
+               <div>{$desc}</div>
+
+               <h3 class="problem-show-content-title">Input</h3>
+
+               <div>{$input}</div>
+
+               <h3 class="problem-show-content-title">Output</h3>
+
+               <div>{$output}</div>
+
+               <h3 class="problem-show-content-title">Sample Input</h3>
+
+               <div class="problem-show-content-text sin">{$sin}</div>
+
+               <h3 class="problem-show-content-title">Sample Output</h3>
+
+               <div class="problem-show-content-text sout">{$sout}</div>
+
+               <h3 class="problem-show-content-title" id="hint-head">Hint</h3>
+
+               <div class="src problem-show-content-text" id="hint-body">{$hint}</div>
+
+               <h3 class="problem-show-content-title">Author</h3>
+
+               <div class="src">{$source}</div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="problem-show-foot">
+      <h4>
+         <a href="__URL__/solutionSubmit?cid={$cid}&pid={$pid}">Submit</a>
+         &nbsp&nbsp|&nbsp&nbsp
+         <a href="__URL__/statistic?cid={$cid}&pid={$pid}">Statistic</a>
+      </h4>
+   </div>
+<script type="text/javascript" src="/Public/js/contest.js"></script>
+<script type="text/javascript">
+var h = document.getElementById("hint-head");
+var b = document.getElementById("hint-body");
+if(b.innerHTML!="") {
+   h.style.display = "block";
+   b.style.display = "block";
+} else {
+   h.style.display = "none";
+   b.style.display = "none";
+}
+</script>
+</block>

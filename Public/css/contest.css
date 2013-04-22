@@ -1,0 +1,180 @@
+/*
+ * Author: leolin;
+ * contest css
+ */
+/*  :hover{
+    transition-property: background-color, color;
+    transition-duration: 0.6s;
+    transition-timing-function: ease;
+    -webkit-transition-property: background-color, color, padding;
+    -webkit-transition-duration: 0.6s;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-property: background-color, color;
+    -moz-transition-duration: 0.6s;
+    -moz-transition-timing-function: ease;
+    -o-transition-property: background-color, color;
+    -o-transition-duration: 0.6s;
+    -o-transition-timing-function: ease;
+  }*/
+
+  .tabs-border{
+    position: relative;
+    margin-left: 0px;
+    width: 931px;
+    /*height: 300px;*/
+    height: auto;
+    overflow: hidden;
+  }
+
+  .nav-tabs{
+    width: 964px;
+    height: 25px;
+    margin-bottom: 20px;
+    list-style: none;
+    border-bottom: 1px solid rgb(134, 199, 250);
+  }
+
+  .active{
+    background-color: white !important;
+    border: 1px solid rgb(134, 199, 250) !important;
+    border-bottom: 0 !important;
+    height: 25px !important;
+  }
+
+  a.active:hover{
+    color: #08c !important;
+  }
+
+  .nav-tabs a{
+    display: inline-block;
+    width: 100px;
+    height: 24px;
+    background-color: #E4F2FD;
+    border-radius: 5px 5px 0 0;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .nav-tabs a:hover{
+    background-color: #08c;
+    color: #fff;
+  }
+
+  .nav-content div{
+    margin-left: 20px;
+  }
+
+  .problem-link{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .problem-link a{
+    display: inline-block;
+    height: 22px;
+    width: 25px;
+    background: #fff;
+    margin-left: 10px;
+    /*padding: 4px 8px;*/
+    border: 1px solid #ddd;
+    font-size: 19px;
+    text-align: center;
+  }
+
+  .problem-link a:hover{
+    background: #08c;
+    color: #fff;
+  }
+
+  .td-width{
+    width: 5%;
+  }
+
+/* Problem statistic */
+#solution-statistic-info
+{
+  _display: inline;
+  float: left;
+  font-size: 14px;
+  background: #efefef;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin: 55px 25px;
+}
+
+#solution-statistic-table
+{
+  _display: inline;
+  float: left;
+}
+
+/*时间进度条css*/
+.progress-bar {
+    background-color: #fff;
+    height: 25px;
+    padding: 5px;
+    width: 945px;
+    margin: 0 0 20px 0;     
+    border: 2px solid rgb(134, 199, 250);  
+    border-radius: 5px;        
+}
+
+.progress-bar span {
+    display: inline-block;
+    height: 100%;   
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+        -webkit-transition: width .3s ease-in-out;
+        -moz-transition: width .3s ease-in-out;
+        -ms-transition: width .3s ease-in-out;
+        -o-transition: width .3s ease-in-out;
+        transition: width .3s ease-in-out;    
+}
+.blue span {
+    background-color: #08c;   
+}
+.stripes span {
+    -webkit-background-size: 30px 30px;
+    -moz-background-size: 30px 30px;
+    background-size: 30px 30px;         
+    background-image: -webkit-gradient(linear, left top, right bottom,
+                        color-stop(.25, rgba(255, 255, 255, .15)), color-stop(.25, transparent),
+                        color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .15)),
+                        color-stop(.75, rgba(255, 255, 255, .15)), color-stop(.75, transparent),
+                        to(transparent));
+    background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
+                        transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+                        transparent 75%, transparent);
+    background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
+                        transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+                        transparent 75%, transparent);
+    background-image: -ms-linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
+                        transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+                        transparent 75%, transparent);
+    background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
+                        transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+                        transparent 75%, transparent);
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
+                        transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+                        transparent 75%, transparent);            
+    
+    -webkit-animation: animate-stripes 4s linear infinite;
+    -moz-animation: animate-stripes 4s linear infinite;             
+}
+
+@-webkit-keyframes animate-stripes { 
+    0% {background-position: 0 0;} 100% {background-position: 60px 0;}
+}
+
+@-moz-keyframes animate-stripes {
+    0% {background-position: 0 0;} 100% {background-position: 60px 0;}
+}
+#time1{
+    color: #fff;
+    float: right;
+}

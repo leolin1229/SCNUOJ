@@ -1,0 +1,110 @@
+/*
+    Author: KidLet
+    Date:   2013-03-07
+
+    For SCNU OJ user CSS
+*/
+
+
+#wrap
+{
+	margin: 10px 30px;
+}
+
+.table
+{
+	width: 100%;
+	border-spacing: 0;
+	text-align: center;
+	border-collapse: collapse;
+  	border-spacing: 0;
+	
+}
+
+.table th,
+.table td 
+{
+  padding: 8px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  border-top: 1px solid #dddddd;
+}
+
+.table th 
+{
+  font-weight: bold;
+}
+
+.table thead th 
+{
+  vertical-align: bottom;
+}
+
+.pagination 
+{
+	margin-top: 20px;
+}
+
+/* Search form */
+#form-search
+{
+	padding-left: 730px;
+	margin: 8px 0;
+}
+
+#user-login-form
+{
+	text-align: center;
+	margin: 10px auto;
+}
+
+#user-reg-form table
+{
+	margin:auto;
+	text-align: right;
+}
+
+#user-reg-form table td
+{
+	padding: 3px 10px;
+}
+
+#user-status-table
+{
+	width: 600px;
+	margin-left: 10px;
+}
+#user-status-table, #user-status-table td
+{
+	text-align: left;
+}
+
+/* user-status-list */
+
+#user-status-list
+{
+	margin-left: 15px;
+}
+.badge
+{
+	padding-right: 9px;
+	padding-left: 9px;
+	-webkit-border-radius: 9px;
+	-moz-border-radius: 9px;
+	border-radius: 9px;
+	background-color: #999999;
+	color: #ffffff;
+	font-size: 11.5px;
+	font-weight: bold;
+}
+
+.badge-important
+{
+	background-color: #b94a48;
+}
+
+.badge-success
+{
+	background-color: #468847;
+}

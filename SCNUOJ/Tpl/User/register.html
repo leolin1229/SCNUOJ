@@ -1,0 +1,68 @@
+<extend name="./Tpl/Public/base.html" />
+<block name="head">
+   <title>华南师范大学ACM Online Judge</title>
+   <link rel="stylesheet" type="text/css" href="/Public/css/base.css">
+   <link rel="stylesheet" type="text/css" href="/Public/css/user.css">
+</block>
+
+<block name="content">
+<div id="wrap">
+	<h2>Register</h2>
+	<div id="user-reg-form">
+		<h3 style="text-align:center;color:red">{$info}</h3>
+		<form action="/SCNUOJ/index.php/User/checkRegister" method="post">
+         <table>
+            <tbody>
+               <tr>
+                  <td>用户名: </td>
+                  <td><input id="user-reg-username" type="text" name="user_id" class="w150 h25"/></td>
+               </tr>
+
+               <tr>
+                  <td>密码: </td>
+                  <td><input type="password" name="password" class="w150 h25" placeholder="6-15"/></td>
+               </tr>
+
+               <tr>
+                  <td>确认密码: </td>
+                  <td><input type="password" name="repassword" class="w150 h25" /></td>
+               </tr>
+
+               <tr>
+                  <td>schooll</td>
+                  <td><input type="text" placeholder="学校" name="school" class="w150 h25" /></td>
+               </tr>
+
+               <tr>
+                  <td>email</td>
+                  <td><input type="text" placeholder="E-Mail" name="email" class="w150 h25"/></td>
+               </tr>
+
+               <tr>
+                  <td>motto</td>
+                  <td><input type="text" placeholder="Motto" name="motto" class="w150 h25" /></td>
+               </tr>
+
+               <tr>
+                  <td>Share Code：</td>
+                  <td><input type="radio" name="is_share" value="Yes" />Yes
+                     <input type="radio" name="is_share" value="No" checked="true" />No</td>
+               </tr>
+
+               
+               <tr>
+                  <td><input type="submit" value="登录" class="btn-green" /></td>
+                  <td><input type="reset" value="重置" class="btn-red" /></td>
+                  <input type="hidden" name="flag" value="0" />
+               </tr>
+            </tbody>
+         </table>
+
+
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+	$('user-reg-username').focus();
+</script>
+</block>

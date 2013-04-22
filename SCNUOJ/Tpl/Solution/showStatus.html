@@ -1,0 +1,98 @@
+<extend name="./Tpl/Public/base.html" />
+<block name="head">
+   <title>华南师范大学ACM Online Judge</title>
+   <link rel="stylesheet" type="text/css" href="/Public/css/base.css">
+   <link rel="stylesheet" type="text/css" href="/Public/css/solution.css">
+   <style type="text/css">
+   .result-ce div{
+      display: none;
+      width: 250px;
+      position: absolute;
+      left: 455px;
+      color: #fff;
+      background-color: #000;
+      border: 1px solid #000;
+      opacity: 0.9;
+      /*ie6*/
+      filter:alpha(opacity=90);
+      /**/
+      -moz-border-radius:5px;
+      -webkit-border-radius:5px;
+      border-radius: 5px;
+      behavior: url(/Public/ie-css3.htc);
+   }
+   a.result-ce:hover div{
+      display: block;
+   }
+   </style>
+ </block>
+<block name="content">
+   <div id="wrap">
+      <h2>Realtime Status</h2>
+      <div>
+         <input hidden="hidden" id="leo" value="{$res}" style="display: none;">   
+         <form id="form-search" action="__URL__/search" method="get">
+            User:
+            <input name="user" type="text" id="userId" onkeydown="checkLen()" value="{$uid}" class="w150">   
+            
+            Pro.ID:
+            <input name="problem" type="text" id="problemId" onkeydown="checkLen()" value="{$pid}" class="w150">   
+            
+            Status:
+            <select name="result" id="resultId">
+               <option value="All">All</option>
+               <option value="Accepted">Accepted</option>
+               <option value="Wrong Answer">Wrong Answer</option>
+               <option value="Time Limit Exceeded">Time Limit Exceeded</option>
+               <option value="Output Limit Exceeded">Output Limit Exceeded</option>
+               <option value="Runtime Error">Runtime Error</option>
+               <option value="Presentation Error">Presentation Error</option>
+               <option value="Compile Error">Compile Error</option>
+               <option value="Pending">Pending</option>
+            </select>
+            
+            <input name="submit" type="submit" value="Search" class="btn-green">   
+            <input name="reset" type="reset" value="Reset" class="btn-red"></form>
+      </div>
+      
+      <table id="solution-show-table" class="table table-striped table-hover">
+         <thead>
+            <tr>
+               <th width="7%">Run.ID</th>
+               <th width="5%">Pro.ID</th>
+               <th width="18%">Status</th>
+               <th width="5%">Time</th>
+               <th width="10%">Memory</th>
+               <th width="10%">Code Len.</th>
+               <th width="5%">Language</th>
+               <th width="15%">User</th>
+               <th width="20%">Submit Time</th>
+            </tr>
+         </thead>
+         <volist name="list" id="vo" mod = "2">
+            <tr>
+               <td>{$vo['share']}</td>
+               
+               <td>
+                  <a href="__APP__/Problem/showProblem?pid={$vo['problem_id']}">{$vo['problem_id']}</a>
+               </td>
+
+               <td>{$vo['resultColor']}</td>
+               <td>{$vo['runtime']}MS</td>
+               <td>{$vo['memory']}KB</td>
+               <td>{$vo['code_length']}B</td>
+               <td>{$vo['language']}</td>
+               <td>
+                  <a href="__APP__/User/userStatus?uid={$vo['user_id']}">{$vo['user_id']}</a>
+               </td>
+               <td>{$vo['judgetime']}</td>
+            </tr>
+         </volist>
+      </table>
+
+      <div class="pagination">
+         {$page}
+      </div>
+   </div>
+
+</block>

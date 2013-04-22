@@ -1,0 +1,57 @@
+<extend name="./Tpl/Public/base.html" />
+<block name="head">
+  <title>华南师范大学ACM Online Judge</title>
+  <link rel="stylesheet" type="text/css" href="/Public/css/base.css">
+  <link rel="stylesheet" type="text/css" href="/Public/css/problem.css">
+  <link rel="stylesheet" type="text/css" href="/Public/css/contest.css">
+  <link rel="stylesheet" type="text/css" href="/Public/shl/css/shCore.css">
+  <link rel="stylesheet" type="text/css" href="/Public/shl/css/shThemeDefault.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</block>
+<block name="content">
+  <div id="wrap">
+   <h2>{$head}</h2>
+   <div class="nav-tabs">
+    <a href="__URL__/overView?cid={$cid}">OverView</a>
+    <a href="__URL__/showProblem?cid={$cid}&pid=0">Problems</a>
+    <a href="__URL__/status?cid={$cid}" class="active">Status</a>
+    <a href="__URL__/rank?cid={$cid}">Ranklist</a>
+  </div>
+  <div>
+      <input type="hidden" value={$length} id="length">
+      <input type="hidden" value={$begin_time} id="begin_time">
+      <input type="hidden" value="0" id="showtime">
+  </div>
+  <div class="nav-content">
+    <div id="content">
+      <div id="code-area">
+        <div id="code-head">
+          <h3><a href="__APP__/User/userStatus?uid={$uid}">{$uid}</a> 's code for <a href="__URL__//showProblem?cid={$cid}&pid={$pid}">{$ptag}</a></h3>
+        </div>
+        <div id="code-info">
+          <table>
+            <tr>
+              <td><b>Memory:</b>{$memory}KB</td>
+              <td width=30px></td>
+              <td><b>Time:</b>{$runtime}MS</td>
+            </tr>
+            <tr>
+              <td><b>Language:</b>{$language}</td>
+              <td width=30px></td>
+              <td><b>Result:</b>{$result}</td>
+            </tr>
+          </table>
+        </div>
+        <div id="code">
+          <pre class="brush: cpp">{$src}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="/Public/shl/js/shCore.js"></script>
+<script type="text/javascript" src="/Public/shl/js/shAutoloader.js"></script>
+<script type="text/javascript" src="/Public/shl/js/shBrushCpp.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all()</script>
+<script type="text/javascript" src="/Public/js/contest.js"></script>
+</block>

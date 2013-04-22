@@ -1,0 +1,81 @@
+<extend name="./Tpl/Public/base.html" />
+<block name="head">
+   <title>华南师范大学ACM Online Judge</title>
+   <link rel="stylesheet" type="text/css" href="/Public/css/base.css">
+   <link rel="stylesheet" type="text/css" href="/Public/css/problem.css"></block>
+<block name="content">
+   <div id="wrap">
+      <div class="problem-show-head">
+         <h1>{$pid}.&nbsp&nbsp&nbsp{$title}</h1> 
+         
+         <table align="center" class="problem-show-info">
+            <tbody>
+               <tr align="left">
+                  <td>
+                     Time limit: {$time*1000} MS
+                  </td>
+                  <td>
+                     Memory limit: {$memory*1024} K
+                  </td>
+               </tr>
+               <tr align="left">
+                  <td>
+                     Total submission: {$submit}
+                  </td>
+                  <td>
+                     Accepted: {$ac}
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+
+      <div class="problem-show-content"> 
+         <h3 class="problem-show-content-title">Problem Description</h3>
+         <div class="problem-show-content-text">{$desc}</div>
+         
+         <h3 class="problem-show-content-title">Input</h3>
+
+         <div class="problem-show-content-text">{$input}</div>
+         
+         <h3 class="problem-show-content-title">Output</h3>
+         
+         <div class="problem-show-content-text">{$output}</div>
+         
+         <h3 class="problem-show-content-title">Sample Input</h3>
+         
+         <div class="problem-show-content-text sin">{$sin}</div>
+         
+         <h3 class="problem-show-content-title">Sample Output</h3>
+         
+         <div class="problem-show-content-text sout">{$sout}</div>
+         
+         <h3 class="problem-show-content-title" id="hint-head">Hint</h3>
+
+         <div class="src problem-show-content-text" id="hint-body">{$hint}</div>
+
+         <h3 class="problem-show-content-title">Source</h3>
+
+         <div class="src problem-show-content-text">{$source}</div>
+      </div>
+
+      <div class="problem-show-foot">
+         <h4>
+            <a href="__APP__/Solution/solutionSubmit?pid={$pid}">Submit</a>
+            &nbsp&nbsp|&nbsp&nbsp
+            <a href="__URL__/statistic?pid={$pid}">Statistic</a>
+         </h4>
+      </div>
+   </div>
+<script type="text/javascript">
+var h = document.getElementById("hint-head");
+var b = document.getElementById("hint-body");
+if(b.innerHTML!="") {
+   h.style.display = "block";
+   b.style.display = "block";
+} else {
+   h.style.display = "none";
+   b.style.display = "none";
+}
+</script>
+</block>

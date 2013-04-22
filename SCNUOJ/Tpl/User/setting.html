@@ -1,0 +1,71 @@
+<extend name="./Tpl/Public/base.html" />
+<block name="head">
+   <title>华南师范大学ACM Online Judge</title>
+   <link rel="stylesheet" type="text/css" href="/Public/css/base.css">
+   <link rel="stylesheet" type="text/css" href="/Public/css/user.css"></block>
+
+<block name="content">
+   <div id="wrap">
+      <h2>修改个人信息</h2>
+      <h3>{$info}</h3>
+         <form method="post" action="__APP__/User/checkSetting">
+            <table align="center">
+               <tr>
+                  <td>旧密码：</td>
+                  <td>
+                     <input type="password" name="oldPassword"></td>
+               </tr>
+
+               <tr>
+                  <td>新密码：</td>
+                  <td>
+                     <input type="password" name="password"></td>
+               </tr>
+
+               <tr>
+                  <td>确认新密码：</td>
+                  <td>
+                     <input type="password" name="repassword"></td>
+               </tr>
+
+               <tr>
+                  <td>学校：</td>
+                  <td>
+                     <input type="text" name="school"></td>
+               </tr>
+
+               <tr>
+                  <td>E-mail：</td>
+                  <td>
+                     <input type="text" name="email"></td>
+               </tr>
+
+               <tr>
+                  <td>Motto：</td>
+                  <td>
+                     <textarea name="motto"></textarea>
+                  </td>
+               </tr>
+
+               <tr>
+                  <td>Share Code：</td>
+                  <td>
+                     <input type="radio" name="is_share" value="Yes">
+                     Yes
+                     <input type="radio" name="is_share" value="No" checked="true">No</td>
+               </tr>
+
+               <tr>      
+                  <td><input type="submit" class="btn-green" value="提交"></td>
+                  <td>
+                     <a class="btn-red" href="__APP__/User/userStatus?uid={$uid}">
+                        返回
+                     </a>
+                  </td>
+               </tr>
+
+            </table>
+         </form>
+      </div>
+
+</block>

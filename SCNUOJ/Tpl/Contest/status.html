@@ -1,0 +1,119 @@
+<extend name="./Tpl/Public/base.html" />
+<block name="head">
+   <title>华南师范大学ACM Online Judge</title>
+   <link rel="stylesheet" type="text/css" href="/Public/css/base.css">
+   <link rel="stylesheet" type="text/css" href="/Public/css/solution.css">
+   <link rel="stylesheet" type="text/css" href="/Public/css/contest.css">
+   <style type="text/css">
+   .result-ce div{
+      display: none;
+      width: 250px;
+      position: absolute;
+      left: 455px;
+      color: #fff;
+      background-color: #000;
+      border: 1px solid #000;
+      opacity: 0.9;
+      /*ie6*/
+      filter:alpha(opacity=90);
+      /**/
+      -moz-border-radius:5px;
+      -webkit-border-radius:5px;
+      border-radius: 5px;
+      behavior: url(/Public/ie-css3.htc);
+   }
+   a.result-ce:hover div{
+      display: block;
+   }
+   </style>
+ </block>
+<block name="content">
+ <div id="wrap">
+   <h2>{$head}</h2>
+   <div class="nav-tabs">
+      <a href="__URL__/overView?cid={$cid}">OverView</a>
+      <a href="__URL__/showProblem?cid={$cid}&pid=0">Problems</a>
+      <a href="__URL__/status?cid={$cid}" class="active">Status</a>
+      <a href="__URL__/rank?cid={$cid}">Ranklist</a>
+   </div>
+   <div>
+      <input type="hidden" value={$length} id="length">
+      <input type="hidden" value={$begin_time} id="begin_time">
+      <input type="hidden" value="0" id="showtime">
+   </div>
+   <div class="nav-content">
+      <div id="content">
+         <div>
+            <input hidden="hidden" id="leo" value="{$res}" style="display: none;">   
+            <form id="form-search" action="__URL__/search" method="get">
+               User:
+               <input name="user" type="text" id="userId" onkeydown="checkLen()" value="{$uid}" class="w150">   
+
+               Pro.ID:
+               <select name="problem" id="problemId" class="w150">
+                  <volist name="list1" id="vo">
+                     <option value="{$vo['problem_id']-$pid1}">{$vo['proid']}—{$vo['title']}</option>
+                  </volist>
+               </select> 
+
+               Status:
+               <select name="result" id="resultId">
+                  <option value="All">All</option>
+                  <option value="Accepted">Accepted</option>
+                  <option value="Compile Error">Compile Error</option>
+                  <option value="Judge Error">Judge Error</option>
+                  <option value="Output Limit Exceeded">Output Limit Exceeded</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Presentation Error">Presentation Error</option>
+                  <option value="Runtime Error">Runtime Error</option>
+                  <option value="Time Limit Exceeded">Time Limit Exceeded</option>
+                  <option value="Wrong Answer">Wrong Answer</option>
+               </select>
+
+               <input name="submit" type="submit" value="Search" class="btn-green">   
+               <input name="reset" type="reset" value="Reset" class="btn-red">
+               <input name="cid" type="hidden" value={$cid}>
+            </form>
+            </div>
+            <table id="cell" class="table table-striped table-hover">
+               <tr>
+                  <th width="10%">Run.ID</th>
+                  <th width="10%">Status</th>
+                  <th width="5%">Pro.ID</th>
+                  <th width="10%">Exe.Time</th>
+                  <th width="10%">Exe.Memory</th>
+                  <th width="10%">Code Len.</th>
+                  <th width="5%">Language</th>
+                  <th width="15%">User</th>
+                  <th width="25%">Submit Time</th>
+               </tr>
+               <volist name="list" id="vo">
+                  <tr>
+                     <td>{$vo['share']}</td>
+                     <td>{$vo['resultColor']}</td>
+                     <td>
+                        <a href="__URL__/showProblem?cid={$cid}&pid={$vo['problem_id']}">{$vo['proid']}</a>
+                     </td>
+                     <td>{$vo['runtime']}MS</td>
+                     <td>{$vo['memory']}KB</td>
+                     <td>{$vo['code_length']}B</td>
+                     <td>{$vo['language']}</td>
+                     <td>
+                        <a href="__APP__/User/userStatus?uid={$vo['user_id']}">{$vo['user_id']}</a>
+                     </td>
+                     <td>{$vo['judgetime']}</td>
+                  </tr>
+               </volist>
+            </table>
+            <div class="pagination">{$page}</div>
+         </div>
+      </div>
+   </div>
+<script language="JavaScript"> 
+function refresh() { 
+       window.location.reload(); 
+} 
+setTimeout('refresh()',6000);
+</script>
+<script type="text/javascript" src="/Public/js/contest.js"></script>
+</block>
